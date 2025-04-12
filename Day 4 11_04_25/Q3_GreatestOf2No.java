@@ -4,7 +4,7 @@ public class Q3_GreatestOf2No {
     public static void main(String[] args) {
         int a,b;
         Scanner in = new Scanner(System.in);
-        System.out.println("Enter a Integer: ");
+        System.out.println("Enter Two Number: ");
         a = in.nextInt();
         b = in.nextInt();
         

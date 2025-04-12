@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class PrintInFormat {
+public class Q11_PrintInFormat {
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         
