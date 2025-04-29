@@ -106,6 +106,51 @@ public class Questions {
         return 0;
     }
     
+    //Q11 Find all factors of a given number
+    static int factors(int n) {
+        for(int i=1;i<=n;i++) {
+            if(n%i==0)
+                System.out.print(i + " ");
+        }
+        return 0;
+    }
+    
+    //Q12 Find sum of all factors of a given number
+    static int sumoffactors(int n) {
+        int sum=0;
+        for(int i=1;i<=n;i++) {
+            if(n%i==0)
+                sum += i;
+        }
+        System.out.print("Sum of Factor " + n + " is " + sum);
+        return 0;
+    }
+    
+    //Q13 Count all the factors of a given number and display it
+    static int countoffactor(int n) {
+        int count=0;
+        for(int i=1;i<=n;i++) {
+            if(n%i==0)
+                count++;
+        }
+        System.out.print("Count of Factor " + n + " is " + count);
+        return 0;
+    }
+    
+    //Q14 Check a number is prime or not
+    static int primenum(int n) {
+        int count=0;
+        for(int i=1;i<=n;i++) {
+            if(n%i==0)
+                count++;
+        }
+        if(count==2)
+            System.out.print("Prime number");
+        else 
+            System.out.print("Not Prime number");
+        return 0;
+    }
+    
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         
@@ -123,7 +168,7 @@ public class Questions {
         
         
         // Q3 Print Reverse order of given number
-        System.out.print("\n\nQ3. Enter natural number: ");
+        System.out.print("\n\nQ3. Enter number for reverse: ");
         int num = in.nextInt();
         printinrev(num);
         
@@ -147,7 +192,7 @@ public class Questions {
         
         
         //Q7 Find sum of all digits in a given number
-        System.out.print("\n\nQ7. Enter number for sum: ");
+        System.out.print("\n\nQ7. Enter number for Sum of Digits: ");
         int number = in.nextInt();
         sumalldigit(number);
         
@@ -168,6 +213,30 @@ public class Questions {
         System.out.print("\n\nQ10. Enter number to check palindrome: ");
         int palin = in.nextInt();
         palindrome(palin);
+        
+        
+        //Q11 Find all factors of a given number
+        System.out.print("\n\nQ11. Enter number to find factors: ");
+        int factor = in.nextInt();
+        factors(factor);
+        
+        
+        //Q12 Find sum of all factors of a given number
+        System.out.print("\n\nQ12. Enter number to find sum of factor: ");
+        int fsum = in.nextInt();
+        sumoffactors(fsum);
+        
+        
+        //Q13 Count all the factors of a given number and display it
+        System.out.print("\n\nQ13. Enter number to find count of factor: ");
+        int factcount = in.nextInt();
+        countoffactor(factcount);
+        
+        
+        //Q14 Check a number is prime or not
+        System.out.print("\n\nQ14. Enter number to check prime or not: ");
+        int prime = in.nextInt();
+        primenum(prime);
+
     }
-    
 }
