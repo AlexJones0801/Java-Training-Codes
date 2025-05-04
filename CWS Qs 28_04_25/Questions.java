@@ -258,7 +258,38 @@ public class Questions {
         }
         return 0;
     }
-
+    
+    //Q21 Check a number is Armstrong or not
+    static boolean armstrong(int n) {
+        int original = n,sum=0;
+        int digits=String.valueOf(n).length();
+        
+        while(n>0){
+            int digit = n%10;
+            sum += (int)Math.pow(digit,digits);
+            n /= 10;
+        }
+        return sum == original;
+    }
+    
+    //Q22 Armstrong number between 1 to 100
+    static void armstrongPrint() {
+        for(int i=1;i<100;i++){
+            int n=i,sum=0;
+            int digits=String.valueOf(i).length();
+        
+            while(n>0){
+                int digit = n%10;
+                sum += (int)Math.pow(digit,digits);
+                n /= 10;
+            }
+            
+            if(sum == i){
+                System.out.print(i + " ");
+            }
+        }
+    }
+    
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
@@ -361,5 +392,19 @@ public class Questions {
         int st = in.nextInt();
         int ed = in.nextInt();
         printperfectNo(st, ed);
+        
+        //Q21 Check a number is Armstrong or not
+        System.out.println("\n\nQ21. Enter number to check Armstrong or not: ");
+        int armnum = in.nextInt();
+        if(armstrong(armnum)) {
+            System.out.println(armnum + " is an Armstrong number");
+        } else {
+            System.out.println(armnum + " is not an Armstrong number");
+        }
+        
+        //Q22 Armstrong number between 1 to 100
+        System.out.println("\n\nQ22. All Armstrong Numbers b/w 1 to 100: ");
+        armstrongPrint();
+        
     }
 }
