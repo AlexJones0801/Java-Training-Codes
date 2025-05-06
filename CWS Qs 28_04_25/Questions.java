@@ -141,7 +141,7 @@ public class Questions {
     // Q14 Check a number is prime or not
     static int primenum(int n) {
         int count = 0;
-        for (int i = 1; i <= n; i++) {
+        for (int i = 2; i <= Math.sqrt(n); i++) {
             if (n % i == 0)
                 count++;
         }
@@ -176,11 +176,7 @@ public class Questions {
             return 0;
         }
 
-        if (a < b) {
-            a = 2;
-        }
-
-        for (int num = a; num < b; num++) {
+        for (int num = Math.max(a, 2); num < b; num++) {
             boolean isPrime = true;
             for (int i = 2; i <= Math.sqrt(num); i++) {
                 if (num % i == 0) {
@@ -258,38 +254,104 @@ public class Questions {
         }
         return 0;
     }
-    
-    //Q21 Check a number is Armstrong or not
+
+    // Q21 Check a number is Armstrong or not
     static boolean armstrong(int n) {
-        int original = n,sum=0;
-        int digits=String.valueOf(n).length();
-        
-        while(n>0){
-            int digit = n%10;
-            sum += (int)Math.pow(digit,digits);
+        int original = n, sum = 0;
+        int digits = String.valueOf(n).length();
+
+        while (n > 0) {
+            int digit = n % 10;
+            sum += (int) Math.pow(digit, digits);
             n /= 10;
         }
         return sum == original;
     }
-    
-    //Q22 Armstrong number between 1 to 100
+
+    // Q22 Armstrong number between 1 to 100
     static void armstrongPrint() {
-        for(int i=1;i<100;i++){
-            int n=i,sum=0;
-            int digits=String.valueOf(i).length();
-        
-            while(n>0){
-                int digit = n%10;
-                sum += (int)Math.pow(digit,digits);
+        for (int i = 1; i < 100; i++) {
+            int n = i, sum = 0;
+            int digits = String.valueOf(i).length();
+
+            while (n > 0) {
+                int digit = n % 10;
+                sum += (int) Math.pow(digit, digits);
                 n /= 10;
             }
-            
-            if(sum == i){
+
+            if (sum == i) {
                 System.out.print(i + " ");
             }
         }
     }
-    
+
+    // Q23 Print all Armstrong number between two given range
+    static void armstrongPrintR(int start, int end) {
+        if (start >= end) {
+            System.out.println("Invalid range. Starting range must be less than ending range.");
+            return;
+        }
+        for (int i = start; i < end; i++) {
+            int n = i, sum = 0;
+            int digits = String.valueOf(i).length();
+
+            while (n > 0) {
+                int digit = n % 10;
+                sum += (int) Math.pow(digit, digits);
+                n /= 10;
+            }
+
+            if (sum == i) {
+                System.out.print(i + " ");
+            }
+        }
+    }
+
+    // Q24 Check if a number is a Harshad number
+    static void HarshadNumber(int num) {
+        int original = num;
+        int sum = 0;
+        while (num > 0) {
+            int digit = num % 10;
+            sum += digit;
+            num /= 10;
+        }
+        if (original % sum == 0) {
+            System.out.println("Harshad Number.");
+        } else {
+            System.out.println("Not an Harshad Number.");
+        }
+    }
+
+    // Q25 Find LCM of two numbers
+    static int findLCM(int a, int b) {
+        int gcd = findGCD(a, b);
+        int lcm = (a * b) / gcd;
+        System.out.println("LCM of " + a + " and " + b + " is: " + lcm);
+        return lcm;
+    }
+
+    static int findGCD(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+
+    // Q26 Find GCD (HCF) of two numbers
+    static int findGCD2(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        System.out.println("GCD (HCF) of the given numbers is: " + a);
+        return a;
+    }
+
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
@@ -392,19 +454,42 @@ public class Questions {
         int st = in.nextInt();
         int ed = in.nextInt();
         printperfectNo(st, ed);
-        
-        //Q21 Check a number is Armstrong or not
+
+        // Q21 Check a number is Armstrong or not
         System.out.println("\n\nQ21. Enter number to check Armstrong or not: ");
         int armnum = in.nextInt();
-        if(armstrong(armnum)) {
+        if (armstrong(armnum)) {
             System.out.println(armnum + " is an Armstrong number");
         } else {
             System.out.println(armnum + " is not an Armstrong number");
         }
-        
-        //Q22 Armstrong number between 1 to 100
+
+        // Q22 Armstrong number between 1 to 100
         System.out.println("\n\nQ22. All Armstrong Numbers b/w 1 to 100: ");
         armstrongPrint();
-        
+
+        // Q23 Print all Armstrong number between two given range
+        System.out.println("\n\nQ23. Enter two ranges to Print Armstrong Number: ");
+        int one = in.nextInt();
+        int last = in.nextInt();
+        armstrongPrintR(one, last);
+
+        // Q24 Check if a number is a Harshad number
+        System.out.println("\n\nQ24. Enter a number to Check Harshad No.: ");
+        int harshe = in.nextInt();
+        HarshadNumber(harshe);
+
+        // Q25 Find LCM of two numbers
+        System.out.println("\n\nQ25. Enter two numbers to Find LCM: ");
+        int num11 = in.nextInt();
+        int num22 = in.nextInt();
+        findLCM(num11, num22);
+
+        // Q26 Find GCD (HCF) of two numbers
+        System.out.println("\n\nQ26. Enter two numbers to Find GCD(HCF): ");
+        int num12 = in.nextInt();
+        int num21 = in.nextInt();
+        findGCD2(num12, num21);
+
     }
 }
