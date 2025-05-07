@@ -352,6 +352,70 @@ public class Questions {
         return a;
     }
 
+    // Q27 Find factorial of a number
+    static void factorial(int fact) {
+        long n = 1;
+        for (int i = 1; i <= fact; i++) {
+            n *= i;
+        }
+        System.out.println("Factorial of " + fact + " is: " + n);
+    }
+
+    // Q28 Print Fibonacci series up to n terms
+    static void Fibonacci(int fibo) {
+        int first = 0, second = 1;
+        for (int i = 1; i <= fibo; i++) {
+            System.out.print(first + " ");
+            int next = first + second;
+            first = second;
+            second = next;
+        }
+    }
+
+    // Q29 Print Fibonacci numbers in a given range
+    static void FibonacciPrint(int fibo1, int fibo2) {
+        if (fibo1 > fibo2) {
+            System.out.println("Invalid range. Starting range must be less than or equal to ending range.");
+            return;
+        }
+
+        int first = 0, second = 1;
+        System.out.print("Fibonacci numbers in the range [" + fibo1 + ", " + fibo2 + "]: ");
+        while (first <= fibo2) {
+            if (first >= fibo1) {
+                System.out.print(first + " ");
+            }
+            int next = first + second;
+            first = second;
+            second = next;
+        }
+    }
+
+    // Q30 Swap two numbers
+    static void SwapNo(int a, int b) {
+        int temp = a;
+        a = b;
+        b = temp;
+        System.out.println("First Num: " + a + "\nSecond Num:" + b);
+    }
+
+    // Q31 Swap first and last digit of a number
+    static void SwapFLD(int swap){
+        String numStr = String.valueOf(swap);
+        if(numStr.length() == 1){
+            System.out.println("Swapped Number: " + swap);
+            return;
+        }
+
+        char[] numArr = numStr.toCharArray();
+        char temp = numArr[0];
+        numArr[0] = numArr[numArr.length - 1];
+        numArr[numArr.length-1] = temp;
+
+        String swappedNum = new String(numArr);
+        System.out.println("Swapped Number:" + swappedNum);
+    }
+
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
@@ -491,5 +555,32 @@ public class Questions {
         int num21 = in.nextInt();
         findGCD2(num12, num21);
 
+        // Q27 Find factorial of a number
+        System.out.println("\n\nQ27. Enter a number to Check Factorial No.: ");
+        int fact = in.nextInt();
+        factorial(fact);
+
+        // Q28 Print Fibonacci series up to n terms
+        System.out.println("\n\nQ28. Enter a number to Print Fibonacci Series: ");
+        int fibo = in.nextInt();
+        Fibonacci(fibo);
+
+        // Q29 Print Fibonacci numbers in a given range
+        System.out.println("\n\nQ29. Enter two ranges to Print Fibonacci Series: ");
+        int fibo1 = in.nextInt();
+        int fibo2 = in.nextInt();
+        FibonacciPrint(fibo1, fibo2);
+
+        // Q30 Swap two numbers
+        System.out.println("\n\nQ30. Enter two ranges to Print Fibonacci Series: ");
+        int k = in.nextInt();
+        int z = in.nextInt();
+        SwapNo(k, z);
+
+        // Q31 Swap first and last digit of a number
+        System.out.println("\n\nQ30. Enter two ranges to Print Fibonacci Series: ");
+        int swap = in.nextInt();
+        SwapFLD(swap);
     }
+
 }
