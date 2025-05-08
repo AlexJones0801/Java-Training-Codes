@@ -400,9 +400,9 @@ public class Questions {
     }
 
     // Q31 Swap first and last digit of a number
-    static void SwapFLD(int swap){
+    static void SwapFLD(int swap) {
         String numStr = String.valueOf(swap);
-        if(numStr.length() == 1){
+        if (numStr.length() == 1) {
             System.out.println("Swapped Number: " + swap);
             return;
         }
@@ -410,10 +410,73 @@ public class Questions {
         char[] numArr = numStr.toCharArray();
         char temp = numArr[0];
         numArr[0] = numArr[numArr.length - 1];
-        numArr[numArr.length-1] = temp;
+        numArr[numArr.length - 1] = temp;
 
         String swappedNum = new String(numArr);
         System.out.println("Swapped Number:" + swappedNum);
+    }
+
+    // Q32 Calculate the sum of alternate digits in a number
+    static void SumofAD(int num) {
+        String numStr = String.valueOf(num);
+        int sum = 0;
+
+        for (int i = 0; i < numStr.length(); i += 2) {
+            sum += Character.getNumericValue(numStr.charAt(i));
+        }
+        System.out.println("Sum of alternate digits: " + sum);
+    }
+
+    // Q33 Check whether the number is duck number
+    static void DuckNo(int n) {
+        int org = n;
+
+        if (n <= 0) {
+            System.out.println(org + " is not a Duck Number.");
+            return;
+        }
+
+        boolean hasZero = false;
+        while (n > 0) {
+            int digit = n % 10;
+            if (digit == 0)
+                hasZero = true;
+            n /= 10;
+        }
+        if (hasZero) {
+            System.out.println(org + " is a Duck orgber.");
+        } else {
+            System.out.println(org + " is not a Duck Number.");
+        }
+    }
+
+    // Q34 Check if a number is a Buzz number
+    static void BuzzNo(int num) {
+        if (num % 10 == 7 || num % 7 == 0 || num == 7) {
+            System.out.println(num + " is a Buzz Number");
+            return;
+        } else {
+            System.out.println(num + " is not a Buzz Number");
+        }
+    }
+
+    // Q35 Check if a number is a Magic Number
+    static void MagicNo(int num) {
+        int original = num;
+
+        while (num >= 10) { // Repeat until the number becomes a single digit
+            int sum = 0;
+            while (num > 0) {
+                sum += num % 10; // Add last digit
+                num /= 10; // Remove the last digit
+            }
+            num = sum;
+        }
+
+        if (num == 1) {
+            System.out.println(original + " is a Magic Number.");
+        } else
+            System.out.println(original + " is not a Magic Number.");
     }
 
     public static void main(String[] args) {
@@ -578,9 +641,29 @@ public class Questions {
         SwapNo(k, z);
 
         // Q31 Swap first and last digit of a number
-        System.out.println("\n\nQ30. Enter two ranges to Print Fibonacci Series: ");
+        System.out.println("\n\nQ31. Enter two ranges to Print Fibonacci Series: ");
         int swap = in.nextInt();
         SwapFLD(swap);
+
+        // Q32 Calculate the sum of alternate digits in a number
+        System.out.println("\n\nQ32. Enter a number to calculate the sum of alternate digits: ");
+        int alterd = in.nextInt();
+        SumofAD(alterd);
+
+        // Q33 Check whether the number is duck number
+        System.out.println("\n\nQ33. Enter a number to check whether it is Duck number or not: ");
+        int duck = in.nextInt();
+        DuckNo(duck);
+
+        // Q34 Check if a number is a Buzz number
+        System.out.println("\n\nQ34. Enter a number to check whether it is Buzz number or not: ");
+        int buzz = in.nextInt();
+        BuzzNo(buzz);
+
+        // Q35 Check if a number is a Magic Number
+        System.out.println("\n\nQ35. Enter a number to check whether it is Magic number or not: ");
+        int magic = in.nextInt();
+        MagicNo(magic);
     }
 
 }
