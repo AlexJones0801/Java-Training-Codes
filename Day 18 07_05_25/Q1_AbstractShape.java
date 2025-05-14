@@ -1,5 +1,9 @@
 // Q1 Create  an  abstract  class  'Shape'  with  an  abstract  method  'area()'.  Implement  two  subclasses 'Circle' and 'Rectangle'.
 
+import pro.Circle;
+import pro.Rectangle;
+import pro.Shape;
+
 abstract class Shape {
     abstract void area();
 }

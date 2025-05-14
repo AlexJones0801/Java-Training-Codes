@@ -1,3 +1,4 @@
+package pro;
 class Vechile {
     void run() {
         System.out.println("Running..");

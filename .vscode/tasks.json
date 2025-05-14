@@ -1,0 +1,20 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Clean and Compile Current Java File",
+            "type": "shell",
+            "command": "cmd.exe",
+            "args": [
+                "/c",
+                "del /q bin\\*.class && javac -d bin \"${file}\" && java -cp bin ${fileBasenameNoExtension}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$javac"],
+            "detail": "Delete all .class files in the bin folder, compile the current Java file, and run the program"
+        }
+    ]
+}
