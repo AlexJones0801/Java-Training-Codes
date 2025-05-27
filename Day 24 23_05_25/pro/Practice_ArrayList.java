@@ -8,7 +8,7 @@ public class Practice_ArrayList {
         arr.add("rohit");
         arr.add("Jaya");
         arr.add("Rahul");
-        arr.add(1, "Shiv"); // Adding "Shiv" in place of "Jaya"
+        arr.add(1, "Shiv"); // Adding "Shiv" at given index (1)
 
         System.out.println("Array list: " + arr); // This will print whole array
         System.out.println("Getting 4th element: " + arr.get(3)); // And this will fetch element at given index
