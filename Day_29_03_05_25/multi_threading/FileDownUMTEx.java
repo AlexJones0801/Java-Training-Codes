@@ -12,7 +12,7 @@ class Downloader extends Thread{
         for(int i=0; i<=5;i++) {
             System.out.println(FileName + " downloading... " + (i*20) + "%");
             try {
-                Thread.sleep(100000);
+                Thread.sleep(1000);
             } catch (Exception e) {
             }
         }
