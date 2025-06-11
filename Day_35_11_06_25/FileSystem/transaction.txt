@@ -1,0 +1,4 @@
+Account Holder Name: Shivansh Kurmi
+Deposit: Rs. 25000.0
+Account Holder Name: Shivansh Kurmi
+Withdrawal: Rs. 1500.0
